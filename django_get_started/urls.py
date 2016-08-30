@@ -3,7 +3,7 @@ Definition of urls for django_get_started.
 """
 
 from datetime import datetime
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from app.forms import BootstrapAuthenticationForm
 
 # Uncomment the next lines to enable the admin:
@@ -11,7 +11,7 @@ from app.forms import BootstrapAuthenticationForm
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Examples:
     url(r'^$', 'app.views.home', name='home'),
     url(r'^contact$', 'app.views.contact', name='contact'),
@@ -22,10 +22,10 @@ urlpatterns = patterns('',
             'template_name': 'app/login.html',
             'authentication_form': BootstrapAuthenticationForm,
             'extra_context':
-            {
-                'title':'Log in',
-                'year':datetime.now().year,
-            }
+                {
+                    'title': 'Log in',
+                    'year': datetime.now().year,
+                }
         },
         name='login'),
     url(r'^logout$',
@@ -40,4 +40,4 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-)
+]
